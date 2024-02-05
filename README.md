@@ -39,7 +39,19 @@ Key technologies integrated into this project include:
 - QAM Modulation
 
 ## Implementation Process
-The project follows a structured implementation process, starting from signal encoding to modulation and transmission.
+
+### Overall Framework
+
+- **Transmitter**: Includes the generation of data, encoding, modulation, and OFDM signal synthesis.
+- **Channel**: Represents the medium over which the OFDM signals travel, characterized by multipath fading and noise.
+- **Receiver**: Comprises synchronization, channel estimation, demodulation, decoding, and error-checking stages.
+
+A detailed diagram of the framework can be found below:
+
+![OFDM System Framework](https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/Simulink%20Model%20visulization%20for%20OFDM.png)
+
+Following this high-level overview, we dive into each component's specific implementation details.
+
 
 ## Testing and Results
 
