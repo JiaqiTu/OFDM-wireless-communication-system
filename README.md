@@ -48,9 +48,24 @@ Key technologies integrated into this project include:
 
 A detailed diagram of the framework can be found below:
 
-![OFDM System Framework](https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/Simulink%20Model%20visulization%20for%20OFDM.png)
+![OFDM System Framework](https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/diagrams/Simulink%20Model%20visulization%20for%20OFDM.png)
 
 Following this high-level overview, we dive into each component's specific implementation details.
+
+### Bernoulli Binary Generator
+Generates random binary data simulating transmitted information based on a Bernoulli process, producing 1s and 0s at a equal probability.
+
+### General CRC Generator
+Applies a Cyclic Redundancy Check (CRC) to the binary data for error detection, enhancing data integrity during transmission.
+
+### Turbo Encoder
+Encodes data using a Turbo Code, which introduces redundancy to enable error correction at the receiver, crucial for maintaining data reliability over noisy channels.
+
+### 16-QAM Modulation
+Modulates the encoded data using 16-Quadrature Amplitude Modulation (16-QAM), which translates bits into complex symbols for amplitude and phase representation, preparing the data for channel transmission.
+
+
+
 
 
 ## Testing and Results
