@@ -52,16 +52,30 @@ A detailed diagram of the framework can be found below:
 
 Following this high-level overview, we dive into each component's specific implementation details.
 
-### Bernoulli Binary Generator
-Generates random binary data simulating transmitted information based on a Bernoulli process, producing 1s and 0s at a equal probability.
+### 1. Baseband Data Generation
 
-### General CRC Generator
-Applies a Cyclic Redundancy Check (CRC) to the binary data for error detection, enhancing data integrity during transmission.
+- **Module Used**: Bernoulli Random Number Generator from the Simulink library.
+- **Function**: Generates random binary numbers with a probability of 0.5 for both '0' and '1'.
+- **Output**: Data is outputted in frames, with each frame containing 20 binary digits.
 
-### Turbo Encoder
-Encodes data using a Turbo Code, which introduces redundancy to enable error correction at the receiver, crucial for maintaining data reliability over noisy channels.
+### 2. Adding CRC Redundancy
 
-### 16-QAM Modulation
+- **Module Used**: CRC Generator from the Simulink library.
+- **Function**: Employs a 24th-order CRC generator polynomial to each data frame.
+- **Output**: Processes each 20-bit data frame and appends 24 redundant CRC bits, resulting in 44-bit frames.
+
+### 3. Turbo Encoding and Interleaving
+
+- **Process Flow**:
+  - The original bit sequence is divided into two pathways.
+  - One path inputs directly into a Convolutional Encoder.
+  - The second path passes through a Random Interleaver before entering another Convolutional Encoder (labeled Convolutional Encoder1).
+  - A Deinterleaver separates the outputs from the two encoders into odd and even bit sequences.
+  - The odd sequences from the first Convolutional Encoder and the even sequences from both Convolutional Encoders are merged using a Multiplexer (Mux).
+  - The resulting serial sequence is the output of the Turbo encoding process.
+  - Data interleaving and the pruning of redundant bits are then performed to finalize the encoded data stream.
+
+### 4. 16-QAM Modulation
 Modulates the encoded data using 16-Quadrature Amplitude Modulation (16-QAM), which translates bits into complex symbols for amplitude and phase representation, preparing the data for channel transmission.
 
 
