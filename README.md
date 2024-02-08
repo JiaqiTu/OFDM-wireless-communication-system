@@ -79,6 +79,20 @@ Following this high-level overview, we dive into each component's specific imple
 Modulates the encoded data using 16-Quadrature Amplitude Modulation (16-QAM), which translates bits into complex symbols for amplitude and phase representation, preparing the data for channel transmission.
 
 
+### 5. OFDM Modulation and Demodulation
+
+OFDM modulation in Simulink is accomplished by utilizing the platform's row and column selection tools to appropriately insert different data into 64 IFFT points. Following this, a cyclic prefix is added at the end of the data block, and the OFDM-processed data is inserted at the beginning of the transmission frame.
+
+#### Pilot Signal Insertion
+
+The insertion of pilot signals adopts a block-type structure. Within a specific OFDM symbol, all the signals are pilot signals. These pilot signals are periodically transmitted, which is an approach that is especially suitable for slow-fading channels. Given that in such a symbol, all sub-carriers are occupied by pilot signals, there is no need for channel interpolation in the frequency direction, which makes the system less sensitive to frequency-selective fading.
+
+![OFDM signal](https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/diagrams/Simulink%20Model%20visulization%20for%20OFDM.png)
+
+
+#### OFDM Demodulation
+
+The demodulation of OFDM is the reverse procedure of modulation. It starts with the removal of the cyclic prefix and is followed by performing an FFT transform. After the FFT, the data that has been subject to channel fading is extracted at the original positions of the transmitted data.
 
 
 
