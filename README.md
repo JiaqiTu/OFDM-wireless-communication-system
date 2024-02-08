@@ -87,7 +87,7 @@ OFDM modulation in Simulink is accomplished by utilizing the platform's row and 
 
 The insertion of pilot signals adopts a block-type structure. Within a specific OFDM symbol, all the signals are pilot signals. These pilot signals are periodically transmitted, which is an approach that is especially suitable for slow-fading channels. Given that in such a symbol, all sub-carriers are occupied by pilot signals, there is no need for channel interpolation in the frequency direction, which makes the system less sensitive to frequency-selective fading.
 
-![OFDM signal](https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/diagrams/ofdm_sig1.png =150x100)
+<img src="https://github.com/JiaqiTu/OFDM-wireless-communication-system/blob/main/diagrams/ofdm_sig1.png" width="500" height="300" alt="OFDM signal">
 
 
 #### OFDM Demodulation
