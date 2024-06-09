@@ -1,7 +1,7 @@
 # OFDM-wireless-communication-system
 
 ## Introduction
-Shanghai University Broadband wireless communication course project
+Shanghai University Broadband wireless communication
 
 This project is an in-depth exploration of implementing an Orthogonal Frequency-Division Multiplexing (OFDM) wireless communication system with MATLAB Simulink. 
 
